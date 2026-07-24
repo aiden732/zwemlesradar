@@ -16,6 +16,7 @@ def parse_range(tekst):
     """'13-16 maanden' / '6 - 8 maanden' / '1,5 jaar' / '9 maanden tot een jaar'
     / 'anderhalf jaar' / 'zes maanden' -> (lo, hi) in maanden, of None."""
     t = " ".join(tekst.lower().split()).replace("anderhalf jaar", "1,5 jaar")
+    t = re.sub(r"(\d),\s+(\d)", r"\1,\2", t)  # losgetrokken decimaalkomma herstellen
     woord = {"twee":2,"drie":3,"vier":4,"vijf":5,"zes":6,"zeven":7,"acht":8,
              "negen":9,"tien":10,"elf":11,"twaalf":12}
     for w, v in woord.items():
@@ -79,7 +80,7 @@ def parse_vrije_tekst(html, contextwoorden=(r"wachttijd", r"wachtlijst")):
             continue
         if "review" in z or "doorstroom" in z:
             continue
-        for stuk in re.split(r",(?!\d)|;| en bij | bij ", zin):
+        for stuk in re.split(r",(?!\s*\d)|;| en bij | bij ", zin):
             rng = parse_range(stuk)
             if rng and rng[0] <= 36 and (rng[1] is None or rng[1] <= 36):
                 out.append({"label": "site", "raw": stuk.strip()[:160],
