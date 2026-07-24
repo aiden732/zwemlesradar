@@ -1435,7 +1435,7 @@
    "plaats": "Maarssen",
    "prov": "Utrecht",
    "groep": "sportfondsen",
-   "status": "geen data: HTTPSConnectionPool(host='stichtsevecht.sportfondsen.nl', po",
+   "status": "geen data: HTTPSConnectionPool(host='stichtsevecht.sportfondsen.nl', po | browser-fail",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
