@@ -38,15 +38,27 @@ def scan_dewi(haal_fn, opti_lijst, max_id=140):
             if on and cn and (on in cn or cn in on):
                 koppel = (oid, naam, plaats, prov)
                 break
-        # kinder-zwemlesproduct + wachtlijst-tekst in de buurt?
+        # alle zwemlesproducten checken op de wachtlijst-verklikker
         indicator = None
-        km = KIND_RE.search(html)
-        if km:
-            venster = html[km.start(): km.start() + 1600]
-            indicator = "wachtlijst" if PLEK_RE.search(venster) else None
+        kind_gezien = False
+        extra = []
+        ZWEMLES_RE = re.compile(r"(Startpakket[^<\n]{0,60}zwemles[^<\n]{0,20}|Zed\s*&\s*Sop\s*zwemles|zwemles\s*9\+|Volwassen(en)?\s*zwemles)", re.I)
+        for zm in ZWEMLES_RE.finditer(html):
+            naam_p = re.sub(r"\s+", " ", zm.group(0)).strip()
+            venster = html[zm.start(): zm.start() + 1600]
+            heeft_wacht = bool(PLEK_RE.search(venster))
+            is_kind = not re.search(r"9\+|volwassen", naam_p, re.I)
+            if is_kind:
+                kind_gezien = True
+                if heeft_wacht:
+                    indicator = "wachtlijst"
+            elif heeft_wacht:
+                extra.append(naam_p)
         detail = "DEWI-boekingssysteem gecheckt (club %d)" % cid
-        if km and indicator is None:
+        if kind_gezien and indicator is None:
             detail += "; kinderzwemles-inschrijving open zonder wachtlijst-vermelding"
+        if extra:
+            detail += "; wachtlijst gemeld bij: " + ", ".join(sorted(set(extra))[:3])
         rec = {
             "id": koppel[0] if koppel else "dewi-%d" % cid,
             "naam": koppel[1] if koppel else ("Optisport " + clubnaam.replace("Optisport", "").strip()),
