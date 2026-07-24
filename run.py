@@ -1,146 +1,139 @@
 #!/usr/bin/env python3
 """
-ZwemlesRadar-scraper: haalt alle bronnen op, parseert wachttijden,
-schrijft data/wachttijden.json. Faalt een bron, dan blijft de vorige
-waarde staan met stale=True — eerlijk zichtbaar op de site.
-Draait lokaal (python3 run.py) en dagelijks via GitHub Actions.
+ZwemlesRadar-scraper v2. Drie sporen, dagelijks via GitHub Actions:
+1. publicisten (vaste pagina's met duur)  2. Sportfondsen-module
+3. Optisport via DEWI Online (club-enumeratie).
+Flow per bron: requests -> parse; leeg? -> headless browser -> parse;
+nog leeg? -> indicator (wachtlijst/direct) over alle opgehaalde pagina's.
+Fouten degraderen naar de vorige waarde met stale=True.
 """
-import json, sys, datetime, pathlib
+import json, sys, datetime, pathlib, time, re
 sys.path.insert(0, str(pathlib.Path(__file__).parent / "scrapers"))
 import requests
 from bronnen import BRONNEN
+from multibronnen import SPORTFONDSEN, SF_PADEN, OPTISPORT
 from parsers import (parse_dataduiker_lesdagen, parse_vrije_tekst,
                      parse_sportfondsen_wachtlijst, detecteer_indicator)
-from multibronnen import SPORTFONDSEN, SF_PADEN, OPTISPORT, OPTI_PADEN
-import time
+from dewi import scan_dewi
+import browser
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
       "Accept-Language": "nl-NL,nl;q=0.9"}
 UIT = pathlib.Path(__file__).parent / "data" / "wachttijden.json"
+PARSERS = {"dataduiker": parse_dataduiker_lesdagen,
+           "sportfondsen": parse_sportfondsen_wachtlijst}
 
 def laad_vorige():
     if UIT.exists():
         return {b["id"]: b for b in json.loads(UIT.read_text())["bronnen"]}
     return {}
 
+def haal(url):
+    try:
+        r = requests.get(url, headers=UA, timeout=20)
+        r.raise_for_status()
+        if len(r.text) > 400:
+            return r.text
+    except Exception:
+        pass
+    return None
+
+def probeer(urls, parse_fn, browser_max=2):
+    """Probeer urls met requests, dan browser. Geeft (metingen, url, htmls)."""
+    htmls = []
+    for url in urls:
+        h = haal(url)
+        if not h:
+            continue
+        htmls.append(h)
+        m = parse_fn(h)
+        if m:
+            return m, url, htmls
+    for url in urls[:browser_max]:
+        h = browser.fetch_html(url)
+        if not h:
+            continue
+        htmls.append(h)
+        m = parse_fn(h)
+        if m:
+            return m, url, htmls
+    return [], None, htmls
+
+def indicator_uit(htmls):
+    beste = None
+    for h in htmls:
+        ind = detecteer_indicator(h)
+        if ind == "wachtlijst":
+            return "wachtlijst"
+        if ind and not beste:
+            beste = ind
+    return beste
+
+def crawl_links(basis_url, html):
+    from urllib.parse import urljoin, urlparse
+    dom = urlparse(basis_url).netloc
+    uit = []
+    for l in re.findall(r'href="([^"#]+)"', html):
+        vol = urljoin(basis_url, l)
+        if urlparse(vol).netloc == dom and re.search(r"zwemles|wachtlijst|wachttijd|veelgestelde|faq", vol, re.I):
+            if vol not in uit:
+                uit.append(vol)
+    return uit[:4]
+
+def maak_record(basis, vorige, vandaag, metingen, gebruikt, indicator, foutlabel):
+    rec = dict(basis)
+    if metingen:
+        los = [x["lo"] for x in metingen] + [x["hi"] for x in metingen if x["hi"] is not None]
+        rec.update(status="ok", peildatum=vandaag, metingen=metingen, bron_url=gebruikt,
+                   min_mnd=min(los), max_mnd=max(los), stale=False, indicator="duur")
+    elif indicator:
+        rec.update(status="ok (indicator)", peildatum=vandaag, metingen=[],
+                   min_mnd=None, max_mnd=None, stale=False, indicator=indicator)
+    else:
+        oud = vorige.get(basis["id"], {})
+        rec.update(status=foutlabel, peildatum=oud.get("peildatum"),
+                   metingen=oud.get("metingen", []), min_mnd=oud.get("min_mnd"),
+                   max_mnd=oud.get("max_mnd"), stale=True, indicator=oud.get("indicator"))
+    n = len(rec.get("metingen") or [])
+    print(f"[{'OK ' if not rec['stale'] else '---'}] {rec['id']:24} {n:2}x  ind={rec.get('indicator')}")
+    return rec
+
 def main():
     vandaag = datetime.date.today().isoformat()
     vorige = laad_vorige()
     resultaat = []
-    import browser
-    laatste_fout = {}
-    def haal(url):
-        try:
-            resp = requests.get(url, headers=UA, timeout=20)
-            resp.raise_for_status()
-            if len(resp.text) > 400:
-                return resp.text
-            laatste_fout[url.split("/")[2]] = "lege pagina"
-        except Exception as e:
-            laatste_fout[url.split("/")[2]] = str(e)[:60]
-        return None
-    def haal2(url):
-        """requests eerst; bij blokkade of lege pagina de echte browser."""
-        h = haal(url)
-        if h is not None:
-            return h
-        h = browser.fetch_html(url)
-        if h is None:
-            laatste_fout[url.split("/")[2]] = laatste_fout.get(url.split("/")[2], "") + " | browser-fail"
-        return h
-    for bron in BRONNEN:
-        rec = dict(bron)
-        try:
-            fn = {"dataduiker": parse_dataduiker_lesdagen,
-                  "sportfondsen": parse_sportfondsen_wachtlijst}.get(bron["parser"], parse_vrije_tekst)
-            metingen, eerste_html, gebruikte_url = [], None, None
-            kandidaten = list(bron["urls"])
-            geprobeerd = set()
-            while kandidaten and not metingen:
-                url = kandidaten.pop(0)
-                if url in geprobeerd: continue
-                geprobeerd.add(url)
-                html = haal2(url)
-                if html is None:
-                    continue
-                if eerste_html is None: eerste_html = (url, html)
-                metingen = fn(html)
-                if metingen: gebruikte_url = url
-            if not metingen and eerste_html:
-                # crawl 1 niveau: links met zwemles/wachtlijst/faq op zelfde domein
-                import re as _re
-                from urllib.parse import urljoin, urlparse
-                basis_url, basis_html = eerste_html
-                dom = urlparse(basis_url).netloc
-                links = _re.findall(r'href="([^"#]+)"', basis_html)
-                extra = []
-                for l in links:
-                    vol = urljoin(basis_url, l)
-                    if urlparse(vol).netloc == dom and _re.search(r"zwemles|wachtlijst|wachttijd|veelgestelde|faq", vol, _re.I):
-                        if vol not in geprobeerd and vol not in extra:
-                            extra.append(vol)
-                for url in extra[:4]:
-                    html2 = haal2(url)
-                    if html2 is None:
-                        continue
-                    metingen = fn(html2)
-                    if metingen:
-                        gebruikte_url = url
-                        break
-            if not metingen:
-                raise ValueError("geen wachttijd-waarden gevonden op kandidaat-pagina's")
-            rec["bron_url"] = gebruikte_url
-            los = [m["lo"] for m in metingen] + [m["hi"] for m in metingen if m["hi"]]
-            rec.update(status="ok", peildatum=vandaag, metingen=metingen,
-                       min_mnd=min(los), max_mnd=max(los), stale=False)
-        except Exception as e:
-            oud = vorige.get(bron["id"], {})
-            rec.update(status=f"fout: {type(e).__name__}: {e}"[:160],
-                       peildatum=oud.get("peildatum"),
-                       metingen=oud.get("metingen", []),
-                       min_mnd=oud.get("min_mnd"), max_mnd=oud.get("max_mnd"),
-                       stale=True)
-        n = len(rec["metingen"])
-        print(f"[{'OK ' if not rec['stale'] else 'OUD'}] {bron['id']:24} {n:2} meting(en)"
-              + (f"  {rec['min_mnd']}-{rec['max_mnd']} mnd" if rec.get("min_mnd") is not None else "")
-              + ("" if not rec["stale"] else f"  ({rec['status']})"))
-        resultaat.append(rec)
-    # ---------- multibronnen: Sportfondsen-module ----------
-    for mid, naam, plaats, prov, sub in SPORTFONDSEN:
-        time.sleep(0.3)
-        _host = sub + ".sportfondsen.nl"
-        rec = dict(id=mid, naam=naam, plaats=plaats, prov=prov, groep="sportfondsen")
-        metingen, indicator, gebruikt = [], None, None
-        beste_html = None
-        for pad in SF_PADEN:
-            url = f"https://{sub}.sportfondsen.nl{pad}"
-            html = haal2(url)
-            if html is None: continue
-            if beste_html is None: beste_html = html
-            m = parse_sportfondsen_wachtlijst(html)
-            if m:
-                metingen, gebruikt = m, url
-                break
-        if not metingen and beste_html:
-            indicator = detecteer_indicator(beste_html)
-        if metingen:
-            los = [x["lo"] for x in metingen] + [x["hi"] for x in metingen if x["hi"] is not None]
-            rec.update(status="ok", peildatum=vandaag, metingen=metingen, bron_url=gebruikt,
-                       min_mnd=min(los), max_mnd=max(los), stale=False, indicator="duur")
-        elif indicator:
-            rec.update(status="ok (indicator)", peildatum=vandaag, metingen=[],
-                       min_mnd=None, max_mnd=None, stale=False, indicator=indicator)
-        else:
-            oud = vorige.get(mid, {})
-            rec.update(status="geen data: " + laatste_fout.get(_host, "?"), peildatum=oud.get("peildatum"),
-                       metingen=oud.get("metingen", []), min_mnd=oud.get("min_mnd"),
-                       max_mnd=oud.get("max_mnd"), stale=True,
-                       indicator=oud.get("indicator"))
-        print(f"[{'OK ' if not rec['stale'] else '---'}] {mid:22} {len(rec['metingen']):2}x  ind={rec.get('indicator')}")
-        resultaat.append(rec)
 
-    # ---------- multibronnen: Optisport via DEWI Online ----------
-    from dewi import scan_dewi
+    # ---- 1. publicisten ----
+    for bron in BRONNEN:
+        fn = PARSERS.get(bron["parser"], parse_vrije_tekst)
+        metingen, gebruikt, htmls = probeer(bron["urls"], fn)
+        if not metingen and htmls:
+            for url in crawl_links(bron["urls"][0], htmls[0]):
+                h = haal(url)
+                if h:
+                    htmls.append(h)
+                    metingen = fn(h)
+                    if metingen:
+                        gebruikt = url
+                        break
+        indicator = None if metingen else indicator_uit(htmls)
+        basis = {k: bron[k] for k in ("id", "naam", "plaats", "prov")}
+        basis["groep"] = "publicist"
+        resultaat.append(maak_record(basis, vorige, vandaag, metingen, gebruikt, indicator,
+                                     "geen duur en geen indicator gevonden"))
+        time.sleep(0.2)
+
+    # ---- 2. Sportfondsen-module ----
+    for mid, naam, plaats, prov, sub in SPORTFONDSEN:
+        urls = [f"https://{sub}.sportfondsen.nl{p}" for p in SF_PADEN] + [f"https://{sub}.sportfondsen.nl/"]
+        metingen, gebruikt, htmls = probeer(urls, parse_sportfondsen_wachtlijst, browser_max=1)
+        indicator = None if metingen else indicator_uit(htmls)
+        basis = dict(id=mid, naam=naam, plaats=plaats, prov=prov, groep="sportfondsen")
+        resultaat.append(maak_record(basis, vorige, vandaag, metingen, gebruikt, indicator,
+                                     "subdomein/pagina niet bruikbaar"))
+        time.sleep(0.2)
+
+    # ---- 3. Optisport via DEWI ----
     dewi_recs = scan_dewi(lambda u: (time.sleep(0.25), haal(u))[1], OPTISPORT, max_id=140)
     dewi_ids = set()
     for dr in dewi_recs:
@@ -152,11 +145,11 @@ def main():
         else:
             rec.update(status="dewi-check ok; geen wachtlijst-tekst bij kinderzwemles",
                        peildatum=vandaag, metingen=[], min_mnd=None, max_mnd=None, stale=False)
-        print(f"[OK ] {rec['id']:22} dewi-club {rec['dewi_club']:3}  ind={rec['indicator']}")
+        print(f"[OK ] {rec['id']:24} dewi-club {rec['dewi_club']:3}  ind={rec['indicator']}")
         resultaat.append(rec)
-    # Optisport-locaties zonder dewi-hit: als stale record behouden
-    for mid, naam, plaats, prov, basis in OPTISPORT:
-        if mid in dewi_ids: continue
+    for mid, naam, plaats, prov, basis_url in OPTISPORT:
+        if mid in dewi_ids:
+            continue
         oud = vorige.get(mid, {})
         resultaat.append(dict(id=mid, naam=naam, plaats=plaats, prov=prov, groep="optisport",
                               status="geen dewi-club gematcht", peildatum=oud.get("peildatum"),
