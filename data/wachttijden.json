@@ -6,9 +6,12 @@
    "naam": "Zwembad De Vallei",
    "plaats": "Veenendaal",
    "prov": "Utrecht",
-   "url": "https://www.sportserviceveenendaal.nl/zwemles-dagen-en-tijden",
    "parser": "dataduiker",
-   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
+   "urls": [
+    "https://www.sportserviceveenendaal.nl/zwemles-dagen-en-tijden"
+   ],
+   "bron_url": "https://www.sportserviceveenendaal.nl/zwemles-dagen-en-tijden",
+   "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
     {
@@ -146,27 +149,30 @@
    ],
    "min_mnd": 6.0,
    "max_mnd": 17.0,
-   "stale": true
+   "stale": false
   },
   {
    "id": "helsdingen-vianen",
-   "naam": "Helsdingen Sport en Cultuur",
+   "naam": "Helsdingen",
    "plaats": "Vianen",
    "prov": "Utrecht",
-   "url": "https://www.helsdingen.nl/zwemmen/zwemles/veel-gestelde-vragen/",
    "parser": "tekst",
+   "urls": [
+    "https://www.helsdingen.nl/zwemmen/zwemles/veel-gestelde-vragen/"
+   ],
+   "bron_url": "https://www.helsdingen.nl/zwemmen/zwemles/veel-gestelde-vragen/",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
     {
      "label": "site",
-     "raw": "De wachttijd is op het moment van inschrijven minimaal 1,5 jaar.",
-     "lo": 18.0,
-     "hi": null
+     "raw": "5 jaar.",
+     "lo": 60.0,
+     "hi": 60.0
     }
    ],
-   "min_mnd": 18.0,
-   "max_mnd": 18.0,
+   "min_mnd": 60.0,
+   "max_mnd": 60.0,
    "stale": false
   },
   {
@@ -174,22 +180,37 @@
    "naam": "De Koploper",
    "plaats": "Lelystad",
    "prov": "Flevoland",
-   "url": "https://www.sportbedrijf.nl/zwemmen/zwemles",
    "parser": "tekst",
-   "status": "fout: HTTPError: 404 Client Error: Not Found for url: https://www.sportbedrijf.nl/zwemmen/zwemles",
-   "peildatum": null,
-   "metingen": [],
-   "min_mnd": null,
-   "max_mnd": null,
-   "stale": true
+   "urls": [
+    "https://www.sportbedrijf.nl/veelgestelde-vragen",
+    "https://www.sportbedrijf.nl/zwemles",
+    "https://www.sportbedrijf.nl/"
+   ],
+   "bron_url": "https://www.sportbedrijf.nl/veelgestelde-vragen",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "site",
+     "raw": "Op dit moment hebben we een wachtlijst van zes maanden voor zwemdiploma A van het Zwem-ABC voor kinderen.",
+     "lo": 6.0,
+     "hi": 6.0
+    }
+   ],
+   "min_mnd": 6.0,
+   "max_mnd": 6.0,
+   "stale": false
   },
   {
    "id": "tropiqua-veendam",
    "naam": "Tropiqua",
    "plaats": "Veendam",
    "prov": "Groningen",
-   "url": "https://www.tropiqua.nl/zwemles/",
    "parser": "tekst",
+   "urls": [
+    "https://www.tropiqua.nl/zwemles/"
+   ],
+   "bron_url": "https://www.tropiqua.nl/zwemles/",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -206,12 +227,16 @@
   },
   {
    "id": "sport050-groningen",
-   "naam": "Sport050 (Kardinge e.a.)",
+   "naam": "Sport050",
    "plaats": "Groningen",
    "prov": "Groningen",
-   "url": "https://sport050.nl/zwemmen/zwemles/",
    "parser": "tekst",
-   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
+   "urls": [
+    "https://sport050.nl/sporten/zwemmen/zwemles-volwassenen/",
+    "https://sport050.nl/sporten/zwemmen/zwemles-kinderen/",
+    "https://sport050.nl/"
+   ],
+   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -223,9 +248,13 @@
    "naam": "Zwembad De Hout",
    "plaats": "Alkmaar",
    "prov": "Noord-Holland",
-   "url": "https://www.zwembaddehout.nl/zwemles/",
    "parser": "tekst",
-   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
+   "urls": [
+    "https://www.zwembaddehout.nl/zwemles/",
+    "https://www.zwembaddehout.nl/",
+    "https://www.alkmaarsport.nl/zwemles"
+   ],
+   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -237,9 +266,12 @@
    "naam": "Hoornse Vaart",
    "plaats": "Alkmaar",
    "prov": "Noord-Holland",
-   "url": "https://www.hoornsevaart.nl/zwemles/",
    "parser": "tekst",
-   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
+   "urls": [
+    "https://www.hoornsevaart.nl/zwemles/",
+    "https://www.hoornsevaart.nl/"
+   ],
+   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -251,9 +283,12 @@
    "naam": "Zwemschool de Drijver",
    "plaats": "Hoofddorp e.o.",
    "prov": "Noord-Holland",
-   "url": "https://www.zwemschooldedrijver.nl/veelgestelde-vragen/",
    "parser": "tekst",
-   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
+   "urls": [
+    "https://www.zwemschooldedrijver.nl/zwemles/",
+    "https://www.zwemschooldedrijver.nl/"
+   ],
+   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -265,9 +300,12 @@
    "naam": "Zwemschool Unikco",
    "plaats": "Drachten",
    "prov": "Friesland",
-   "url": "https://www.zwemschoolunikco.nl/",
    "parser": "tekst",
-   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
+   "urls": [
+    "https://www.zwemschoolunikco.nl/zwemles/",
+    "https://www.zwemschoolunikco.nl/"
+   ],
+   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -279,23 +317,37 @@
    "naam": "Watervrienden Venlo",
    "plaats": "Venlo",
    "prov": "Limburg",
-   "url": "https://www.watervriendenvenlo.nl/",
    "parser": "tekst",
-   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
-   "peildatum": null,
-   "metingen": [],
-   "min_mnd": null,
-   "max_mnd": null,
-   "stale": true
+   "urls": [
+    "https://www.watervriendenvenlo.nl/zwemles/",
+    "https://www.watervriendenvenlo.nl/"
+   ],
+   "bron_url": "https://www.watervriendenvenlo.nl/zwemles-voor-kinderen",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "site",
+     "raw": "in groepen van maximaal 8 kinderen Wachtlijst We hebben op dit moment een wachtlijst van anderhalf jaar.",
+     "lo": 18.0,
+     "hi": 18.0
+    }
+   ],
+   "min_mnd": 18.0,
+   "max_mnd": 18.0,
+   "stale": false
   },
   {
    "id": "bvsport-leeuwarden",
    "naam": "bv SPORT",
    "plaats": "Leeuwarden",
    "prov": "Friesland",
-   "url": "https://www.bvsport.nl/zwemles/",
    "parser": "tekst",
-   "status": "fout: HTTPError: 404 Client Error: Not Found for url: https://www.bvsport.nl/zwemles/",
+   "urls": [
+    "https://www.bvsport.nl/zwemlessen/",
+    "https://www.bvsport.nl/"
+   ],
+   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -307,9 +359,12 @@
    "naam": "Sportiom",
    "plaats": "Den Bosch",
    "prov": "Noord-Brabant",
-   "url": "https://www.sportiom.nl/zwemles/",
    "parser": "tekst",
-   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
+   "urls": [
+    "https://www.sportiom.nl/zwemmen/zwemles/",
+    "https://www.sportiom.nl/"
+   ],
+   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -318,26 +373,380 @@
   },
   {
    "id": "arnhem-perbad",
-   "naam": "Sportbedrijf Arnhem (per bad)",
+   "naam": "Sportbedrijf Arnhem (beide baden)",
    "plaats": "Arnhem",
    "prov": "Gelderland",
-   "url": "https://www.sportinarnhem.nl/zwemles/",
    "parser": "tekst",
-   "status": "fout: HTTPError: 404 Client Error: Not Found for url: https://www.sportinarnhem.nl/zwemles/",
-   "peildatum": null,
-   "metingen": [],
-   "min_mnd": null,
-   "max_mnd": null,
-   "stale": true
+   "urls": [
+    "https://www.sportbedrijfarnhem.nl/klantenservice/veelgestelde-vragen/"
+   ],
+   "bron_url": "https://www.sportbedrijfarnhem.nl/klantenservice/veelgestelde-vragen/",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "site",
+     "raw": "De Grote Koppel is momenteel ongeveer 8 maanden",
+     "lo": 8.0,
+     "hi": 8.0
+    },
+    {
+     "label": "site",
+     "raw": "Valkenhuizen is dat ongeveer 5 maanden.",
+     "lo": 5.0,
+     "hi": 5.0
+    }
+   ],
+   "min_mnd": 5.0,
+   "max_mnd": 8.0,
+   "stale": false
   },
   {
-   "id": "rotterdam-wachttijden",
-   "naam": "Zwembaden Rotterdam (wachttijd-tab)",
+   "id": "rotterdam-oostelijk",
+   "naam": "Sportfondsen Oostelijk Zwembad",
    "plaats": "Rotterdam",
    "prov": "Zuid-Holland",
-   "url": "https://www.zwembadenrotterdam.nl/zwemles/",
+   "parser": "sportfondsen",
+   "urls": [
+    "https://oostelijkzwembad.sportfondsen.nl/ik-ben-nieuw/wachtlijst/"
+   ],
+   "bron_url": "https://oostelijkzwembad.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "16.00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16.45 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16.00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16.45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "13.30 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "14.15 uur",
+     "raw": "6 tot 9 maanden",
+     "lo": 6.0,
+     "hi": 9.0
+    },
+    {
+     "label": "15.00 uur",
+     "raw": "6 tot 9 maanden",
+     "lo": 6.0,
+     "hi": 9.0
+    },
+    {
+     "label": "16.30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16.00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16.45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "08.15 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "09.00 uur",
+     "raw": "6 tot 9 maanden",
+     "lo": 6.0,
+     "hi": 9.0
+    },
+    {
+     "label": "10.30 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "11.15 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "B/C-diploma",
+     "raw": "en C-diploma is de wachttijd 0-3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    }
+   ],
+   "min_mnd": 0.0,
+   "max_mnd": 9.0,
+   "stale": false
+  },
+  {
+   "id": "rotterdam-oostervant",
+   "naam": "Recreatiecentrum Oostervant",
+   "plaats": "Rotterdam",
+   "prov": "Zuid-Holland",
+   "parser": "sportfondsen",
+   "urls": [
+    "https://oostervant.sportfondsen.nl/ik-ben-nieuw/wachtlijst/"
+   ],
+   "bron_url": "https://oostervant.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "​3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "14:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "14:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "09:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "09:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "10:30 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "11:15 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "13:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "13:30 uur",
+     "raw": "9 tot 12 maanden",
+     "lo": 9.0,
+     "hi": 12.0
+    },
+    {
+     "label": "15:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "9 tot 12 maanden",
+     "lo": 9.0,
+     "hi": 12.0
+    },
+    {
+     "label": "19:30 uur",
+     "raw": "6 tot 9 maanden",
+     "lo": 6.0,
+     "hi": 9.0
+    },
+    {
+     "label": "09:00 uur",
+     "raw": "9 tot 12 maanden",
+     "lo": 9.0,
+     "hi": 12.0
+    },
+    {
+     "label": "19:30 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "13:30 uur",
+     "raw": "Minimaal 6 maanden",
+     "lo": 6.0,
+     "hi": 6.0
+    },
+    {
+     "label": "20:00 uur",
+     "raw": "9 tot 12 maanden",
+     "lo": 9.0,
+     "hi": 12.0
+    },
+    {
+     "label": "20:00 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    }
+   ],
+   "min_mnd": 0.0,
+   "max_mnd": 12.0,
+   "stale": false
+  },
+  {
+   "id": "rotterdam-sportbedrijf",
+   "naam": "Sportbedrijf Rotterdam (zwemles)",
+   "plaats": "Rotterdam",
+   "prov": "Zuid-Holland",
    "parser": "tekst",
-   "status": "fout: ConnectionError: HTTPSConnectionPool(host='www.zwembadenrotterdam.nl', port=443): Max retries exceeded with url: /zwemles/ (Caused by NameResolutionError(",
+   "urls": [
+    "https://www.sportbedrijfrotterdam.nl/zwemles-test-wachttijden"
+   ],
+   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
