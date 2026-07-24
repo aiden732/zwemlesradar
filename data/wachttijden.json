@@ -1,6 +1,5 @@
 {
  "gegenereerd": "2026-07-24",
- "opmerking": "voorbeeldrun: alleen De Vallei (geparset uit fixture van 24-07); overige bronnen vullen zich bij de eerste echte GitHub Actions-run",
  "bronnen": [
   {
    "id": "vallei-veenendaal",
@@ -9,7 +8,7 @@
    "prov": "Utrecht",
    "url": "https://www.sportserviceveenendaal.nl/zwemles-dagen-en-tijden",
    "parser": "dataduiker",
-   "status": "ok",
+   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
    "peildatum": "2026-07-24",
    "metingen": [
     {
@@ -147,7 +146,7 @@
    ],
    "min_mnd": 6.0,
    "max_mnd": 17.0,
-   "stale": false
+   "stale": true
   },
   {
    "id": "helsdingen-vianen",
@@ -156,12 +155,19 @@
    "prov": "Utrecht",
    "url": "https://www.helsdingen.nl/zwemmen/zwemles/veel-gestelde-vragen/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
-   "peildatum": null,
-   "metingen": [],
-   "min_mnd": null,
-   "max_mnd": null,
-   "stale": true
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "site",
+     "raw": "De wachttijd is op het moment van inschrijven minimaal 1,5 jaar.",
+     "lo": 18.0,
+     "hi": null
+    }
+   ],
+   "min_mnd": 18.0,
+   "max_mnd": 18.0,
+   "stale": false
   },
   {
    "id": "koploper-lelystad",
@@ -170,7 +176,7 @@
    "prov": "Flevoland",
    "url": "https://www.sportbedrijf.nl/zwemmen/zwemles",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: HTTPError: 404 Client Error: Not Found for url: https://www.sportbedrijf.nl/zwemmen/zwemles",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -184,12 +190,19 @@
    "prov": "Groningen",
    "url": "https://www.tropiqua.nl/zwemles/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
-   "peildatum": null,
-   "metingen": [],
-   "min_mnd": null,
-   "max_mnd": null,
-   "stale": true
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "site",
+     "raw": "Op dit moment moet u rekening houden met een wachtlijst van 9 maanden tot een jaar.",
+     "lo": 9.0,
+     "hi": 12.0
+    }
+   ],
+   "min_mnd": 9.0,
+   "max_mnd": 12.0,
+   "stale": false
   },
   {
    "id": "sport050-groningen",
@@ -198,7 +211,7 @@
    "prov": "Groningen",
    "url": "https://sport050.nl/zwemmen/zwemles/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -212,7 +225,7 @@
    "prov": "Noord-Holland",
    "url": "https://www.zwembaddehout.nl/zwemles/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -226,7 +239,7 @@
    "prov": "Noord-Holland",
    "url": "https://www.hoornsevaart.nl/zwemles/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -240,7 +253,7 @@
    "prov": "Noord-Holland",
    "url": "https://www.zwemschooldedrijver.nl/veelgestelde-vragen/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -254,7 +267,7 @@
    "prov": "Friesland",
    "url": "https://www.zwemschoolunikco.nl/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -268,7 +281,7 @@
    "prov": "Limburg",
    "url": "https://www.watervriendenvenlo.nl/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -282,7 +295,7 @@
    "prov": "Friesland",
    "url": "https://www.bvsport.nl/zwemles/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: HTTPError: 404 Client Error: Not Found for url: https://www.bvsport.nl/zwemles/",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -296,7 +309,7 @@
    "prov": "Noord-Brabant",
    "url": "https://www.sportiom.nl/zwemles/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: ValueError: pagina geladen, geen wachttijd-waarden gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -310,7 +323,7 @@
    "prov": "Gelderland",
    "url": "https://www.sportinarnhem.nl/zwemles/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: HTTPError: 404 Client Error: Not Found for url: https://www.sportinarnhem.nl/zwemles/",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -324,7 +337,7 @@
    "prov": "Zuid-Holland",
    "url": "https://www.zwembadenrotterdam.nl/zwemles/",
    "parser": "tekst",
-   "status": "nog niet gedraaid",
+   "status": "fout: ConnectionError: HTTPSConnectionPool(host='www.zwembadenrotterdam.nl', port=443): Max retries exceeded with url: /zwemles/ (Caused by NameResolutionError(",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
