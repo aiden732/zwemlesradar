@@ -27,6 +27,8 @@ def scan_dewi(haal_fn, opti_lijst, max_id=140):
         if not m:
             continue
         clubnaam = re.sub(r"\s+", " ", m.group(1)).strip()
+        import html as _h
+        vlak = re.sub(r"\s+", " ", _h.unescape(re.sub(r"<[^>]+>", " ", html)))
         if not clubnaam or clubnaam.lower() in gezien_namen:
             continue
         gezien_namen.add(clubnaam.lower())
@@ -43,9 +45,9 @@ def scan_dewi(haal_fn, opti_lijst, max_id=140):
         kind_gezien = False
         extra = []
         ZWEMLES_RE = re.compile(r"(Startpakket[^<\n]{0,60}zwemles[^<\n]{0,20}|Zed\s*&\s*Sop\s*zwemles|zwemles\s*9\+|Volwassen(en)?\s*zwemles)", re.I)
-        for zm in ZWEMLES_RE.finditer(html):
+        for zm in ZWEMLES_RE.finditer(vlak):
             naam_p = re.sub(r"\s+", " ", zm.group(0)).strip()
-            venster = html[zm.start(): zm.start() + 1600]
+            venster = vlak[zm.start(): zm.start() + 900]
             heeft_wacht = bool(PLEK_RE.search(venster))
             is_kind = not re.search(r"9\+|volwassen", naam_p, re.I)
             if is_kind:
