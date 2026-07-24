@@ -166,13 +166,13 @@
    "metingen": [
     {
      "label": "site",
-     "raw": "5 jaar.",
-     "lo": 60.0,
-     "hi": 60.0
+     "raw": "De wachttijd is op het moment van inschrijven minimaal 1,5 jaar.",
+     "lo": 18.0,
+     "hi": null
     }
    ],
-   "min_mnd": 60.0,
-   "max_mnd": 60.0,
+   "min_mnd": 18.0,
+   "max_mnd": 18.0,
    "stale": false
   },
   {
