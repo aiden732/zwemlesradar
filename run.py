@@ -139,38 +139,29 @@ def main():
         print(f"[{'OK ' if not rec['stale'] else '---'}] {mid:22} {len(rec['metingen']):2}x  ind={rec.get('indicator')}")
         resultaat.append(rec)
 
-    # ---------- multibronnen: Optisport-locaties ----------
-    for mid, naam, plaats, prov, basis in OPTISPORT:
-        time.sleep(0.3)
-        _host = basis.split("/")[2]
-        rec = dict(id=mid, naam=naam, plaats=plaats, prov=prov, groep="optisport")
-        metingen, indicator, gebruikt = [], None, None
-        beste_html = None
-        for pad in OPTI_PADEN:
-            html = haal2(basis + pad)
-            if html is None: continue
-            if beste_html is None: beste_html = html
-            m = parse_dataduiker_lesdagen(html) or parse_vrije_tekst(html)
-            if m:
-                metingen, gebruikt = m, basis + pad
-                break
-        if not metingen and beste_html:
-            indicator = detecteer_indicator(beste_html)
-        if metingen:
-            los = [x["lo"] for x in metingen] + [x["hi"] for x in metingen if x["hi"] is not None]
-            rec.update(status="ok", peildatum=vandaag, metingen=metingen, bron_url=gebruikt,
-                       min_mnd=min(los), max_mnd=max(los), stale=False, indicator="duur")
-        elif indicator:
-            rec.update(status="ok (indicator)", peildatum=vandaag, metingen=[],
-                       min_mnd=None, max_mnd=None, stale=False, indicator=indicator)
+    # ---------- multibronnen: Optisport via DEWI Online ----------
+    from dewi import scan_dewi
+    dewi_recs = scan_dewi(lambda u: (time.sleep(0.25), haal(u))[1], OPTISPORT, max_id=140)
+    dewi_ids = set()
+    for dr in dewi_recs:
+        dewi_ids.add(dr["id"])
+        rec = dict(dr)
+        if rec["indicator"]:
+            rec.update(status="ok (dewi-indicator)", peildatum=vandaag, metingen=[],
+                       min_mnd=None, max_mnd=None, stale=False)
         else:
-            oud = vorige.get(mid, {})
-            rec.update(status="geen data: " + laatste_fout.get(_host, "?"), peildatum=oud.get("peildatum"),
-                       metingen=oud.get("metingen", []), min_mnd=oud.get("min_mnd"),
-                       max_mnd=oud.get("max_mnd"), stale=True,
-                       indicator=oud.get("indicator"))
-        print(f"[{'OK ' if not rec['stale'] else '---'}] {mid:22} {len(rec['metingen']):2}x  ind={rec.get('indicator')}")
+            rec.update(status="dewi-check ok; geen wachtlijst-tekst bij kinderzwemles",
+                       peildatum=vandaag, metingen=[], min_mnd=None, max_mnd=None, stale=False)
+        print(f"[OK ] {rec['id']:22} dewi-club {rec['dewi_club']:3}  ind={rec['indicator']}")
         resultaat.append(rec)
+    # Optisport-locaties zonder dewi-hit: als stale record behouden
+    for mid, naam, plaats, prov, basis in OPTISPORT:
+        if mid in dewi_ids: continue
+        oud = vorige.get(mid, {})
+        resultaat.append(dict(id=mid, naam=naam, plaats=plaats, prov=prov, groep="optisport",
+                              status="geen dewi-club gematcht", peildatum=oud.get("peildatum"),
+                              metingen=oud.get("metingen", []), min_mnd=oud.get("min_mnd"),
+                              max_mnd=oud.get("max_mnd"), stale=True, indicator=oud.get("indicator")))
 
     browser.sluit()
     UIT.parent.mkdir(exist_ok=True)
