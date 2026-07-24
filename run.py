@@ -14,7 +14,8 @@ from parsers import (parse_dataduiker_lesdagen, parse_vrije_tekst,
 from multibronnen import SPORTFONDSEN, SF_PADEN, OPTISPORT, OPTI_PADEN
 import time
 
-UA = {"User-Agent": "ZwemlesRadar/1.0 (+wachttijd-overzicht voor ouders; contact via site)"}
+UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
+      "Accept-Language": "nl-NL,nl;q=0.9"}
 UIT = pathlib.Path(__file__).parent / "data" / "wachttijden.json"
 
 def laad_vorige():
@@ -88,12 +89,14 @@ def main():
               + ("" if not rec["stale"] else f"  ({rec['status']})"))
         resultaat.append(rec)
     # ---------- multibronnen: Sportfondsen-module ----------
+    laatste_fout = {}
     def haal(url):
         try:
             resp = requests.get(url, headers=UA, timeout=20)
             resp.raise_for_status()
             return resp.text
-        except Exception:
+        except Exception as e:
+            laatste_fout[url.split("/")[2]] = str(e)[:60]
             return None
 
     for mid, naam, plaats, prov, sub in SPORTFONDSEN:
@@ -121,7 +124,7 @@ def main():
                        min_mnd=None, max_mnd=None, stale=False, indicator=indicator)
         else:
             oud = vorige.get(mid, {})
-            rec.update(status="geen data", peildatum=oud.get("peildatum"),
+            rec.update(status="geen data: " + laatste_fout.get((locals().get("basis") or f"https://{sub}.sportfondsen.nl").split("/")[2], "?"), peildatum=oud.get("peildatum"),
                        metingen=oud.get("metingen", []), min_mnd=oud.get("min_mnd"),
                        max_mnd=oud.get("max_mnd"), stale=True,
                        indicator=oud.get("indicator"))
@@ -153,7 +156,7 @@ def main():
                        min_mnd=None, max_mnd=None, stale=False, indicator=indicator)
         else:
             oud = vorige.get(mid, {})
-            rec.update(status="geen data", peildatum=oud.get("peildatum"),
+            rec.update(status="geen data: " + laatste_fout.get((locals().get("basis") or f"https://{sub}.sportfondsen.nl").split("/")[2], "?"), peildatum=oud.get("peildatum"),
                        metingen=oud.get("metingen", []), min_mnd=oud.get("min_mnd"),
                        max_mnd=oud.get("max_mnd"), stale=True,
                        indicator=oud.get("indicator"))
