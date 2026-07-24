@@ -108,6 +108,7 @@ def main():
     # ---------- multibronnen: Sportfondsen-module ----------
     for mid, naam, plaats, prov, sub in SPORTFONDSEN:
         time.sleep(0.3)
+        _host = sub + ".sportfondsen.nl"
         rec = dict(id=mid, naam=naam, plaats=plaats, prov=prov, groep="sportfondsen")
         metingen, indicator, gebruikt = [], None, None
         beste_html = None
@@ -131,7 +132,7 @@ def main():
                        min_mnd=None, max_mnd=None, stale=False, indicator=indicator)
         else:
             oud = vorige.get(mid, {})
-            rec.update(status="geen data: " + laatste_fout.get((locals().get("basis") or f"https://{sub}.sportfondsen.nl").split("/")[2], "?"), peildatum=oud.get("peildatum"),
+            rec.update(status="geen data: " + laatste_fout.get(_host, "?"), peildatum=oud.get("peildatum"),
                        metingen=oud.get("metingen", []), min_mnd=oud.get("min_mnd"),
                        max_mnd=oud.get("max_mnd"), stale=True,
                        indicator=oud.get("indicator"))
@@ -141,6 +142,7 @@ def main():
     # ---------- multibronnen: Optisport-locaties ----------
     for mid, naam, plaats, prov, basis in OPTISPORT:
         time.sleep(0.3)
+        _host = basis.split("/")[2]
         rec = dict(id=mid, naam=naam, plaats=plaats, prov=prov, groep="optisport")
         metingen, indicator, gebruikt = [], None, None
         beste_html = None
@@ -163,7 +165,7 @@ def main():
                        min_mnd=None, max_mnd=None, stale=False, indicator=indicator)
         else:
             oud = vorige.get(mid, {})
-            rec.update(status="geen data: " + laatste_fout.get((locals().get("basis") or f"https://{sub}.sportfondsen.nl").split("/")[2], "?"), peildatum=oud.get("peildatum"),
+            rec.update(status="geen data: " + laatste_fout.get(_host, "?"), peildatum=oud.get("peildatum"),
                        metingen=oud.get("metingen", []), min_mnd=oud.get("min_mnd"),
                        max_mnd=oud.get("max_mnd"), stale=True,
                        indicator=oud.get("indicator"))

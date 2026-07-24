@@ -1,8 +1,6 @@
-"""
-Headless-browser-fallback (Playwright/Chromium) voor sites die
+"""Headless-browser-fallback (Playwright/Chromium) voor sites die
 simpele requests blokkeren of hun inhoud met JavaScript renderen.
-E©n browser-instantie voor de hele run.
-"""
+Een browser-instantie voor de hele run."""
 _pl = None
 _browser = None
 
@@ -18,14 +16,15 @@ def fetch_html(url, wacht_ms=2500, timeout_ms=25000):
         page.goto(url, timeout=timeout_ms, wait_until="domcontentloaded")
         page.wait_for_timeout(wacht_ms)
         html = page.content()
-        if "Just a moment" in html or "cf-chl" in html:   # Cloudflare-challenge: even doorlopen laten
+        if "Just a moment" in html or "cf-chl" in html:
             page.wait_for_timeout(6500)
             html = page.content()
         page.close()
         return html
     except Exception:
         try:
-            if page: page.close()
+            if page:
+                page.close()
         except Exception:
             pass
         return None
@@ -33,8 +32,11 @@ def fetch_html(url, wacht_ms=2500, timeout_ms=25000):
 def sluit():
     global _pl, _browser
     try:
-        if _browser: _browser.close()
-        if _pl: _pl.stop()
+        if _browser:
+            _browser.close()
+        if _pl:
+            _pl.stop()
     except Exception:
         pass
-    _browser = None; _pl = None
+    _browser = None
+    _pl = None
