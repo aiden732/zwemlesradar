@@ -752,6 +752,1578 @@
    "min_mnd": null,
    "max_mnd": null,
    "stale": true
+  },
+  {
+   "id": "sf-oostelijk",
+   "naam": "Sportfondsen Oostelijk Zwembad",
+   "plaats": "Rotterdam",
+   "prov": "Zuid-Holland",
+   "groep": "sportfondsen",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "16.00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16.45 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16.00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16.45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "13.30 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "14.15 uur",
+     "raw": "6 tot 9 maanden",
+     "lo": 6.0,
+     "hi": 9.0
+    },
+    {
+     "label": "15.00 uur",
+     "raw": "6 tot 9 maanden",
+     "lo": 6.0,
+     "hi": 9.0
+    },
+    {
+     "label": "16.30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16.00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16.45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "08.15 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "09.00 uur",
+     "raw": "6 tot 9 maanden",
+     "lo": 6.0,
+     "hi": 9.0
+    },
+    {
+     "label": "10.30 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "11.15 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "B/C-diploma",
+     "raw": "en C-diploma is de wachttijd 0-3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    }
+   ],
+   "bron_url": "https://oostelijkzwembad.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
+   "min_mnd": 0.0,
+   "max_mnd": 9.0,
+   "stale": false,
+   "indicator": "duur"
+  },
+  {
+   "id": "sf-oostervant",
+   "naam": "Recreatiecentrum Oostervant",
+   "plaats": "Rotterdam",
+   "prov": "Zuid-Holland",
+   "groep": "sportfondsen",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "​3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "14:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "14:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "09:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "09:45 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "10:30 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "11:15 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "17:30 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    },
+    {
+     "label": "13:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "13:30 uur",
+     "raw": "9 tot 12 maanden",
+     "lo": 9.0,
+     "hi": 12.0
+    },
+    {
+     "label": "15:00 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "9 tot 12 maanden",
+     "lo": 9.0,
+     "hi": 12.0
+    },
+    {
+     "label": "19:30 uur",
+     "raw": "6 tot 9 maanden",
+     "lo": 6.0,
+     "hi": 9.0
+    },
+    {
+     "label": "09:00 uur",
+     "raw": "9 tot 12 maanden",
+     "lo": 9.0,
+     "hi": 12.0
+    },
+    {
+     "label": "19:30 uur",
+     "raw": "3 tot 6 maanden",
+     "lo": 3.0,
+     "hi": 6.0
+    },
+    {
+     "label": "13:30 uur",
+     "raw": "Minimaal 6 maanden",
+     "lo": 6.0,
+     "hi": 6.0
+    },
+    {
+     "label": "20:00 uur",
+     "raw": "9 tot 12 maanden",
+     "lo": 9.0,
+     "hi": 12.0
+    },
+    {
+     "label": "20:00 uur",
+     "raw": "0 tot 3 maanden",
+     "lo": 0.0,
+     "hi": 3.0
+    }
+   ],
+   "bron_url": "https://oostervant.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
+   "min_mnd": 0.0,
+   "max_mnd": 12.0,
+   "stale": false,
+   "indicator": "duur"
+  },
+  {
+   "id": "sf-vanmaanen",
+   "naam": "Van Maanenbad",
+   "plaats": "Rotterdam",
+   "prov": "Zuid-Holland",
+   "groep": "sportfondsen",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "16:45 uur",
+     "raw": "4 maanden",
+     "lo": 4.0,
+     "hi": 4.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "5 tot 6 maanden",
+     "lo": 5.0,
+     "hi": 6.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "2 maanden",
+     "lo": 2.0,
+     "hi": 2.0
+    },
+    {
+     "label": "13:00 uur",
+     "raw": "1 tot 2 maanden",
+     "lo": 1.0,
+     "hi": 2.0
+    },
+    {
+     "label": "14:45 uur",
+     "raw": "1 maand 15:30 uur - 3 tot 4 maanden",
+     "lo": 3.0,
+     "hi": 4.0
+    },
+    {
+     "label": "16:15 uur",
+     "raw": "1 tot 2 maanden",
+     "lo": 1.0,
+     "hi": 2.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "4 tot 5 maanden",
+     "lo": 4.0,
+     "hi": 5.0
+    },
+    {
+     "label": "16:00 uur",
+     "raw": "3 maanden",
+     "lo": 3.0,
+     "hi": 3.0
+    },
+    {
+     "label": "16:45 uur",
+     "raw": "2 tot 3 maanden",
+     "lo": 2.0,
+     "hi": 3.0
+    },
+    {
+     "label": "09:30 uur",
+     "raw": "5 tot 6 maanden",
+     "lo": 5.0,
+     "hi": 6.0
+    },
+    {
+     "label": "10:15 uur",
+     "raw": "1 tot 2 maanden",
+     "lo": 1.0,
+     "hi": 2.0
+    }
+   ],
+   "bron_url": "https://vanmaanenbad.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
+   "min_mnd": 1.0,
+   "max_mnd": 6.0,
+   "stale": false,
+   "indicator": "duur"
+  },
+  {
+   "id": "sf-zevenkamp",
+   "naam": "Sportfondsen Zevenkampse Ring",
+   "plaats": "Rotterdam",
+   "prov": "Zuid-Holland",
+   "groep": "sportfondsen",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "16:30 uur",
+     "raw": "12 maanden",
+     "lo": 12.0,
+     "hi": 12.0
+    },
+    {
+     "label": "17:15 uur",
+     "raw": "10 maanden",
+     "lo": 10.0,
+     "hi": 10.0
+    },
+    {
+     "label": "16:30 uur",
+     "raw": "9 maanden",
+     "lo": 9.0,
+     "hi": 9.0
+    },
+    {
+     "label": "17:15 uur",
+     "raw": "6 tot 7 maanden",
+     "lo": 6.0,
+     "hi": 7.0
+    },
+    {
+     "label": "18:00 uur",
+     "raw": "9 maanden",
+     "lo": 9.0,
+     "hi": 9.0
+    },
+    {
+     "label": "13:45 uur",
+     "raw": "9 maanden",
+     "lo": 9.0,
+     "hi": 9.0
+    },
+    {
+     "label": "14:30 uur",
+     "raw": "10 maanden",
+     "lo": 10.0,
+     "hi": 10.0
+    },
+    {
+     "label": "15:45 uur",
+     "raw": "10 maanden",
+     "lo": 10.0,
+     "hi": 10.0
+    },
+    {
+     "label": "16:30 uur",
+     "raw": "10 maanden",
+     "lo": 10.0,
+     "hi": 10.0
+    },
+    {
+     "label": "17:15 uur",
+     "raw": "10 maanden",
+     "lo": 10.0,
+     "hi": 10.0
+    },
+    {
+     "label": "18:00 uur",
+     "raw": "14 maanden",
+     "lo": 14.0,
+     "hi": 14.0
+    },
+    {
+     "label": "16:30 uur",
+     "raw": "7 tot 8 maanden",
+     "lo": 7.0,
+     "hi": 8.0
+    },
+    {
+     "label": "17:15 uur",
+     "raw": "8 maanden",
+     "lo": 8.0,
+     "hi": 8.0
+    },
+    {
+     "label": "16:30 uur",
+     "raw": "10 maanden",
+     "lo": 10.0,
+     "hi": 10.0
+    },
+    {
+     "label": "17:15 uur",
+     "raw": "9 maanden",
+     "lo": 9.0,
+     "hi": 9.0
+    },
+    {
+     "label": "18:00 uur",
+     "raw": "11 tot 12 maanden",
+     "lo": 11.0,
+     "hi": 12.0
+    },
+    {
+     "label": "09:30 uur",
+     "raw": "8 maanden",
+     "lo": 8.0,
+     "hi": 8.0
+    },
+    {
+     "label": "10:15 uur",
+     "raw": "10 maanden",
+     "lo": 10.0,
+     "hi": 10.0
+    },
+    {
+     "label": "11:00 uur",
+     "raw": "8 tot 9 maanden",
+     "lo": 8.0,
+     "hi": 9.0
+    },
+    {
+     "label": "11:45 uur",
+     "raw": "9 tot 10 maanden",
+     "lo": 9.0,
+     "hi": 10.0
+    }
+   ],
+   "bron_url": "https://zevenkampsering.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
+   "min_mnd": 6.0,
+   "max_mnd": 14.0,
+   "stale": false,
+   "indicator": "duur"
+  },
+  {
+   "id": "sf-adamoost",
+   "naam": "Sportfondsenbad Amsterdam-Oost",
+   "plaats": "Amsterdam",
+   "prov": "Noord-Holland",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-mercator",
+   "naam": "SportPlaza Mercator",
+   "plaats": "Amsterdam",
+   "prov": "Noord-Holland",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-wedde",
+   "naam": "Zwembad Het Wedde",
+   "plaats": "Voorschoten",
+   "prov": "Zuid-Holland",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-sterrenbad",
+   "naam": "Sterrenbad",
+   "plaats": "Wassenaar",
+   "prov": "Zuid-Holland",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-hooghewaerd",
+   "naam": "De Hooghe Waerd",
+   "plaats": "IJsselstein",
+   "prov": "Utrecht",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-beverwijk",
+   "naam": "Sportfondsenbad Beverwijk",
+   "plaats": "Beverwijk",
+   "prov": "Noord-Holland",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-monnickendam",
+   "naam": "Sportfondsenbad Monnickendam",
+   "plaats": "Monnickendam",
+   "prov": "Noord-Holland",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-gennep",
+   "naam": "Sportfondsen Gennep",
+   "plaats": "Gennep",
+   "prov": "Limburg",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-skwa",
+   "naam": "Sportcomplex Koning Willem Alexander",
+   "plaats": "Hoofddorp",
+   "prov": "Noord-Holland",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "sf-stichtsevecht",
+   "naam": "Sportfondsen Stichtse Vecht",
+   "plaats": "Maarssen",
+   "prov": "Utrecht",
+   "groep": "sportfondsen",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-walfort",
+   "naam": "Zwembad 't Walfort",
+   "plaats": "Aalten",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-gelenberg",
+   "naam": "Zwembad De Gelenberg",
+   "plaats": "Druten",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-almerepoort",
+   "naam": "Zwembad Almere Poort",
+   "plaats": "Almere",
+   "prov": "Flevoland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-almerestad",
+   "naam": "Zwembad Almere Stad",
+   "plaats": "Almere",
+   "prov": "Flevoland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-vrijbuiter",
+   "naam": "Zwembad De Vrijbuiter",
+   "plaats": "Almere",
+   "prov": "Flevoland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-muziekwijk",
+   "naam": "Zwembad Muziekwijk",
+   "plaats": "Almere",
+   "prov": "Flevoland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-tussendevaarten",
+   "naam": "Zwembad Tussen de Vaarten",
+   "plaats": "Almere",
+   "prov": "Flevoland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-bijlmer",
+   "naam": "Zwembad Bijlmer",
+   "plaats": "Amsterdam",
+   "prov": "Noord-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-sloterparkbad",
+   "naam": "Het Sloterparkbad",
+   "plaats": "Amsterdam",
+   "prov": "Noord-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-aquaaltena",
+   "naam": "Zwembad AquaAltena",
+   "plaats": "Andel",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-veluwehal",
+   "naam": "Zwembad De Veluwehal",
+   "plaats": "Barneveld",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-hofstee",
+   "naam": "Zwembad De Hofstee",
+   "plaats": "Bergambacht",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-smagtenbocht",
+   "naam": "Zwembad De Smagtenbocht",
+   "plaats": "Bladel",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-kuil",
+   "naam": "Zwembad De Kuil",
+   "plaats": "Bodegraven",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-hoogkoor",
+   "naam": "Zwembad 't Hoogkoor",
+   "plaats": "Boxmeer",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-dommelbad",
+   "naam": "Zwembad Het Dommelbad",
+   "plaats": "Boxtel",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-wisselaar",
+   "naam": "Zwembad De Wisselaar",
+   "plaats": "Breda",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-sonsbeeck",
+   "naam": "Zwembad Sonsbeeck",
+   "plaats": "Breda",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-waterlinie",
+   "naam": "Zwembad De Waterlinie",
+   "plaats": "Culemborg",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-dalfsen",
+   "naam": "Zwembad Dalfsen",
+   "plaats": "Dalfsen",
+   "prov": "Overijssel",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-vreeloo",
+   "naam": "Zwembad Vreeloo",
+   "plaats": "De Lier",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-dubbelslag",
+   "naam": "Zwembad Dubbelslag",
+   "plaats": "Delfzijl",
+   "prov": "Groningen",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-tolhuisbad",
+   "naam": "Zwembad Tolhuisbad",
+   "plaats": "Dokkum",
+   "prov": "Friesland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-dordrecht",
+   "naam": "Zwembad Dordrecht (Sportboulevard)",
+   "plaats": "Dordrecht",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-aatdejonge",
+   "naam": "Zwembad Aat de Jonge",
+   "plaats": "Dronten",
+   "prov": "Flevoland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-albatros",
+   "naam": "Zwembad De Albatros",
+   "plaats": "Eersel",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-glanerbrook",
+   "naam": "Zwembad Glanerbrook",
+   "plaats": "Geleen",
+   "prov": "Limburg",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-blauwkapel",
+   "naam": "Zwembad Blauwkapel",
+   "plaats": "Groenekan",
+   "prov": "Utrecht",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-sag",
+   "naam": "Swimming Academy Groningen",
+   "plaats": "Groningen",
+   "prov": "Groningen",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-mosaqua",
+   "naam": "Zwembad Mosaqua",
+   "plaats": "Gulpen",
+   "prov": "Limburg",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-wilder",
+   "naam": "Zwembad De Wilder",
+   "plaats": "Haaksbergen",
+   "prov": "Overijssel",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-derdehaad",
+   "naam": "Zwembad 't Derde Haad",
+   "plaats": "Harlingen",
+   "prov": "Friesland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-braak",
+   "naam": "Zwembad De Braak",
+   "plaats": "Helmond",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-waterhoorn",
+   "naam": "Zwembad De Waterhoorn",
+   "plaats": "Hoorn",
+   "prov": "Noord-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-wetering",
+   "naam": "Zwembad De Wetering",
+   "plaats": "Houten",
+   "prov": "Utrecht",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-jottem",
+   "naam": "Zwembad Jottem",
+   "plaats": "Huissen",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-steur",
+   "naam": "Zwembad De Steur",
+   "plaats": "Kampen",
+   "prov": "Overijssel",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-bloesem",
+   "naam": "Zwembad De Bloesem",
+   "plaats": "Kapelle",
+   "prov": "Zeeland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-vie",
+   "naam": "Zwembad Vie",
+   "plaats": "Kerkrade",
+   "prov": "Limburg",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-niervaert",
+   "naam": "Zwembad De Niervaert",
+   "plaats": "Klundert",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-lansingh",
+   "naam": "Zwembad de Lansingh",
+   "plaats": "Krimpen a/d IJssel",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-veenweidebad",
+   "naam": "Zwembad Veenweidebad",
+   "plaats": "Mijdrecht",
+   "prov": "Utrecht",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-hogebomen",
+   "naam": "Zwembad De Hoge Bomen",
+   "plaats": "Naaldwijk",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-spilbroek",
+   "naam": "Zwembad 't Spilbroek",
+   "plaats": "Neede",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-jvdkrol",
+   "naam": "Jaap van der Krol Bad",
+   "plaats": "Nijkerkerveen",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-poelmeer",
+   "naam": "Zwembad Poelmeer",
+   "plaats": "Oegstgeest",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-dendonk",
+   "naam": "Zwembad Den Donk",
+   "plaats": "Oisterwijk",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-doelum",
+   "naam": "Zwembad Doelum",
+   "plaats": "Renkum",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-denbutter",
+   "naam": "Zwembad Den Butter",
+   "plaats": "Rijen",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-schilp",
+   "naam": "Zwembad De Schilp",
+   "plaats": "Rijswijk",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-alexanderhof",
+   "naam": "Zwembad Het Alexanderhof",
+   "plaats": "Rotterdam",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-lockhorst",
+   "naam": "Bronbad De Lockhorst",
+   "plaats": "Sliedrecht",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-itrak",
+   "naam": "Zwembad It Rak",
+   "plaats": "Sneek",
+   "prov": "Friesland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-engh",
+   "naam": "Zwembad De Engh",
+   "plaats": "Soest",
+   "prov": "Utrecht",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-pagedal",
+   "naam": "Zwembad Pagedal",
+   "plaats": "Stadskanaal",
+   "prov": "Groningen",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-waalslag",
+   "naam": "Zwembad Waalslag",
+   "plaats": "Tiel",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-vanpallandt",
+   "naam": "Zwembad Van Pallandt",
+   "plaats": "Varsseveld",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-heuvelrand",
+   "naam": "Zwembad De Heuvelrand",
+   "plaats": "Voorthuizen",
+   "prov": "Gelderland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-watergeus",
+   "naam": "Zwembad De Watergeus",
+   "plaats": "Zoetermeer",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-zuidhorn",
+   "naam": "Zwemcentrum Zuidhorn",
+   "plaats": "Zuidhorn",
+   "prov": "Groningen",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-wildert",
+   "naam": "Zwembad De Wildert",
+   "plaats": "Zundert",
+   "prov": "Noord-Brabant",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-vrolijkheid",
+   "naam": "Zwembad De Vrolijkheid",
+   "plaats": "Zwolle",
+   "prov": "Overijssel",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
+  },
+  {
+   "id": "opti-maesemunde",
+   "naam": "Zwembad Maesemunde",
+   "plaats": "'s-Gravenzande",
+   "prov": "Zuid-Holland",
+   "groep": "optisport",
+   "status": "geen data",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true,
+   "indicator": null
   }
  ]
 }
