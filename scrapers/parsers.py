@@ -79,9 +79,9 @@ def parse_vrije_tekst(html, contextwoorden=(r"wachttijd", r"wachtlijst")):
             continue
         if "review" in z or "doorstroom" in z:
             continue
-        for stuk in re.split(r",|;| en bij | bij ", zin):
+        for stuk in re.split(r",(?!\d)|;| en bij | bij ", zin):
             rng = parse_range(stuk)
-            if rng:
+            if rng and rng[0] <= 36 and (rng[1] is None or rng[1] <= 36):
                 out.append({"label": "site", "raw": stuk.strip()[:160],
                             "lo": rng[0], "hi": rng[1]})
     uniek, gezien = [], set()
