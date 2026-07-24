@@ -27,6 +27,27 @@ def main():
     vandaag = datetime.date.today().isoformat()
     vorige = laad_vorige()
     resultaat = []
+    import browser
+    laatste_fout = {}
+    def haal(url):
+        try:
+            resp = requests.get(url, headers=UA, timeout=20)
+            resp.raise_for_status()
+            if len(resp.text) > 400:
+                return resp.text
+            laatste_fout[url.split("/")[2]] = "lege pagina"
+        except Exception as e:
+            laatste_fout[url.split("/")[2]] = str(e)[:60]
+        return None
+    def haal2(url):
+        """requests eerst; bij blokkade of lege pagina de echte browser."""
+        h = haal(url)
+        if h is not None:
+            return h
+        h = browser.fetch_html(url)
+        if h is None:
+            laatste_fout[url.split("/")[2]] = laatste_fout.get(url.split("/")[2], "") + " | browser-fail"
+        return h
     for bron in BRONNEN:
         rec = dict(bron)
         try:
@@ -39,13 +60,11 @@ def main():
                 url = kandidaten.pop(0)
                 if url in geprobeerd: continue
                 geprobeerd.add(url)
-                try:
-                    resp = requests.get(url, headers=UA, timeout=25)
-                    resp.raise_for_status()
-                except Exception:
+                html = haal2(url)
+                if html is None:
                     continue
-                if eerste_html is None: eerste_html = (url, resp.text)
-                metingen = fn(resp.text)
+                if eerste_html is None: eerste_html = (url, html)
+                metingen = fn(html)
                 if metingen: gebruikte_url = url
             if not metingen and eerste_html:
                 # crawl 1 niveau: links met zwemles/wachtlijst/faq op zelfde domein
@@ -61,12 +80,10 @@ def main():
                         if vol not in geprobeerd and vol not in extra:
                             extra.append(vol)
                 for url in extra[:4]:
-                    try:
-                        resp = requests.get(url, headers=UA, timeout=25)
-                        resp.raise_for_status()
-                    except Exception:
+                    html2 = haal2(url)
+                    if html2 is None:
                         continue
-                    metingen = fn(resp.text)
+                    metingen = fn(html2)
                     if metingen:
                         gebruikte_url = url
                         break
@@ -89,16 +106,6 @@ def main():
               + ("" if not rec["stale"] else f"  ({rec['status']})"))
         resultaat.append(rec)
     # ---------- multibronnen: Sportfondsen-module ----------
-    laatste_fout = {}
-    def haal(url):
-        try:
-            resp = requests.get(url, headers=UA, timeout=20)
-            resp.raise_for_status()
-            return resp.text
-        except Exception as e:
-            laatste_fout[url.split("/")[2]] = str(e)[:60]
-            return None
-
     for mid, naam, plaats, prov, sub in SPORTFONDSEN:
         time.sleep(0.3)
         rec = dict(id=mid, naam=naam, plaats=plaats, prov=prov, groep="sportfondsen")
@@ -106,7 +113,7 @@ def main():
         beste_html = None
         for pad in SF_PADEN:
             url = f"https://{sub}.sportfondsen.nl{pad}"
-            html = haal(url)
+            html = haal2(url)
             if html is None: continue
             if beste_html is None: beste_html = html
             m = parse_sportfondsen_wachtlijst(html)
@@ -138,7 +145,7 @@ def main():
         metingen, indicator, gebruikt = [], None, None
         beste_html = None
         for pad in OPTI_PADEN:
-            html = haal(basis + pad)
+            html = haal2(basis + pad)
             if html is None: continue
             if beste_html is None: beste_html = html
             m = parse_dataduiker_lesdagen(html) or parse_vrije_tekst(html)
@@ -163,6 +170,7 @@ def main():
         print(f"[{'OK ' if not rec['stale'] else '---'}] {mid:22} {len(rec['metingen']):2}x  ind={rec.get('indicator')}")
         resultaat.append(rec)
 
+    browser.sluit()
     UIT.parent.mkdir(exist_ok=True)
     UIT.write_text(json.dumps({"gegenereerd": vandaag, "bronnen": resultaat},
                               ensure_ascii=False, indent=1))
