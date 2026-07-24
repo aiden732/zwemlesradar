@@ -6,11 +6,7 @@
    "naam": "Zwembad De Vallei",
    "plaats": "Veenendaal",
    "prov": "Utrecht",
-   "parser": "dataduiker",
-   "urls": [
-    "https://www.sportserviceveenendaal.nl/zwemles-dagen-en-tijden"
-   ],
-   "bron_url": "https://www.sportserviceveenendaal.nl/zwemles-dagen-en-tijden",
+   "groep": "publicist",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -147,20 +143,18 @@
      "hi": 12.0
     }
    ],
+   "bron_url": "https://www.sportserviceveenendaal.nl/zwemles-dagen-en-tijden",
    "min_mnd": 6.0,
    "max_mnd": 17.0,
-   "stale": false
+   "stale": false,
+   "indicator": "duur"
   },
   {
    "id": "helsdingen-vianen",
    "naam": "Helsdingen",
    "plaats": "Vianen",
    "prov": "Utrecht",
-   "parser": "tekst",
-   "urls": [
-    "https://www.helsdingen.nl/zwemmen/zwemles/veel-gestelde-vragen/"
-   ],
-   "bron_url": "https://www.helsdingen.nl/zwemmen/zwemles/veel-gestelde-vragen/",
+   "groep": "publicist",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -171,22 +165,18 @@
      "hi": null
     }
    ],
+   "bron_url": "https://www.helsdingen.nl/zwemmen/zwemles/veel-gestelde-vragen/",
    "min_mnd": 18.0,
    "max_mnd": 18.0,
-   "stale": false
+   "stale": false,
+   "indicator": "duur"
   },
   {
    "id": "koploper-lelystad",
    "naam": "De Koploper",
    "plaats": "Lelystad",
    "prov": "Flevoland",
-   "parser": "tekst",
-   "urls": [
-    "https://www.sportbedrijf.nl/veelgestelde-vragen",
-    "https://www.sportbedrijf.nl/zwemles",
-    "https://www.sportbedrijf.nl/"
-   ],
-   "bron_url": "https://www.sportbedrijf.nl/veelgestelde-vragen",
+   "groep": "publicist",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -197,20 +187,18 @@
      "hi": 6.0
     }
    ],
+   "bron_url": "https://www.sportbedrijf.nl/veelgestelde-vragen",
    "min_mnd": 6.0,
    "max_mnd": 6.0,
-   "stale": false
+   "stale": false,
+   "indicator": "duur"
   },
   {
    "id": "tropiqua-veendam",
    "naam": "Tropiqua",
    "plaats": "Veendam",
    "prov": "Groningen",
-   "parser": "tekst",
-   "urls": [
-    "https://www.tropiqua.nl/zwemles/"
-   ],
-   "bron_url": "https://www.tropiqua.nl/zwemles/",
+   "groep": "publicist",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -221,108 +209,88 @@
      "hi": 12.0
     }
    ],
+   "bron_url": "https://www.tropiqua.nl/zwemles/",
    "min_mnd": 9.0,
    "max_mnd": 12.0,
-   "stale": false
+   "stale": false,
+   "indicator": "duur"
   },
   {
    "id": "sport050-groningen",
    "naam": "Sport050",
    "plaats": "Groningen",
    "prov": "Groningen",
-   "parser": "tekst",
-   "urls": [
-    "https://sport050.nl/sporten/zwemmen/zwemles-volwassenen/",
-    "https://sport050.nl/sporten/zwemmen/zwemles-kinderen/",
-    "https://sport050.nl/"
-   ],
-   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
+   "groep": "publicist",
+   "status": "geen duur en geen indicator gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true
+   "stale": true,
+   "indicator": null
   },
   {
    "id": "dehout-alkmaar",
    "naam": "Zwembad De Hout",
    "plaats": "Alkmaar",
    "prov": "Noord-Holland",
-   "parser": "tekst",
-   "urls": [
-    "https://www.zwembaddehout.nl/zwemles/",
-    "https://www.zwembaddehout.nl/",
-    "https://www.alkmaarsport.nl/zwemles"
-   ],
-   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
+   "groep": "publicist",
+   "status": "geen duur en geen indicator gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true
+   "stale": true,
+   "indicator": null
   },
   {
    "id": "hoornsevaart-alkmaar",
    "naam": "Hoornse Vaart",
    "plaats": "Alkmaar",
    "prov": "Noord-Holland",
-   "parser": "tekst",
-   "urls": [
-    "https://www.hoornsevaart.nl/zwemles/",
-    "https://www.hoornsevaart.nl/"
-   ],
-   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
+   "groep": "publicist",
+   "status": "geen duur en geen indicator gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true
+   "stale": true,
+   "indicator": null
   },
   {
    "id": "drijver-hoofddorp",
    "naam": "Zwemschool de Drijver",
    "plaats": "Hoofddorp e.o.",
    "prov": "Noord-Holland",
-   "parser": "tekst",
-   "urls": [
-    "https://www.zwemschooldedrijver.nl/zwemles/",
-    "https://www.zwemschooldedrijver.nl/"
-   ],
-   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
+   "groep": "publicist",
+   "status": "geen duur en geen indicator gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true
+   "stale": true,
+   "indicator": null
   },
   {
    "id": "unikco-drachten",
    "naam": "Zwemschool Unikco",
    "plaats": "Drachten",
    "prov": "Friesland",
-   "parser": "tekst",
-   "urls": [
-    "https://www.zwemschoolunikco.nl/zwemles/",
-    "https://www.zwemschoolunikco.nl/"
-   ],
-   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
+   "groep": "publicist",
+   "status": "geen duur en geen indicator gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true
+   "stale": true,
+   "indicator": null
   },
   {
    "id": "watervrienden-venlo",
    "naam": "Watervrienden Venlo",
    "plaats": "Venlo",
    "prov": "Limburg",
-   "parser": "tekst",
-   "urls": [
-    "https://www.watervriendenvenlo.nl/zwemles/",
-    "https://www.watervriendenvenlo.nl/"
-   ],
-   "bron_url": "https://www.watervriendenvenlo.nl/zwemles-voor-kinderen",
+   "groep": "publicist",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -333,54 +301,46 @@
      "hi": 18.0
     }
    ],
+   "bron_url": "https://www.watervriendenvenlo.nl/zwemles-voor-kinderen",
    "min_mnd": 18.0,
    "max_mnd": 18.0,
-   "stale": false
+   "stale": false,
+   "indicator": "duur"
   },
   {
    "id": "bvsport-leeuwarden",
    "naam": "bv SPORT",
    "plaats": "Leeuwarden",
    "prov": "Friesland",
-   "parser": "tekst",
-   "urls": [
-    "https://www.bvsport.nl/zwemlessen/",
-    "https://www.bvsport.nl/"
-   ],
-   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
+   "groep": "publicist",
+   "status": "geen duur en geen indicator gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true
+   "stale": true,
+   "indicator": null
   },
   {
    "id": "sportiom-denbosch",
    "naam": "Sportiom",
    "plaats": "Den Bosch",
    "prov": "Noord-Brabant",
-   "parser": "tekst",
-   "urls": [
-    "https://www.sportiom.nl/zwemmen/zwemles/",
-    "https://www.sportiom.nl/"
-   ],
-   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
-   "peildatum": null,
+   "groep": "publicist",
+   "status": "ok (indicator)",
+   "peildatum": "2026-07-24",
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true
+   "stale": false,
+   "indicator": "direct"
   },
   {
    "id": "arnhem-perbad",
    "naam": "Sportbedrijf Arnhem (beide baden)",
    "plaats": "Arnhem",
    "prov": "Gelderland",
-   "parser": "tekst",
-   "urls": [
-    "https://www.sportbedrijfarnhem.nl/klantenservice/veelgestelde-vragen/"
-   ],
-   "bron_url": "https://www.sportbedrijfarnhem.nl/klantenservice/veelgestelde-vragen/",
+   "groep": "publicist",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -397,20 +357,18 @@
      "hi": 5.0
     }
    ],
+   "bron_url": "https://www.sportbedrijfarnhem.nl/klantenservice/veelgestelde-vragen/",
    "min_mnd": 5.0,
    "max_mnd": 8.0,
-   "stale": false
+   "stale": false,
+   "indicator": "duur"
   },
   {
    "id": "rotterdam-oostelijk",
    "naam": "Sportfondsen Oostelijk Zwembad",
    "plaats": "Rotterdam",
    "prov": "Zuid-Holland",
-   "parser": "sportfondsen",
-   "urls": [
-    "https://oostelijkzwembad.sportfondsen.nl/ik-ben-nieuw/wachtlijst/"
-   ],
-   "bron_url": "https://oostelijkzwembad.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
+   "groep": "publicist",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -517,20 +475,18 @@
      "hi": 3.0
     }
    ],
+   "bron_url": "https://oostelijkzwembad.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
    "min_mnd": 0.0,
    "max_mnd": 9.0,
-   "stale": false
+   "stale": false,
+   "indicator": "duur"
   },
   {
    "id": "rotterdam-oostervant",
    "naam": "Recreatiecentrum Oostervant",
    "plaats": "Rotterdam",
    "prov": "Zuid-Holland",
-   "parser": "sportfondsen",
-   "urls": [
-    "https://oostervant.sportfondsen.nl/ik-ben-nieuw/wachtlijst/"
-   ],
-   "bron_url": "https://oostervant.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
+   "groep": "publicist",
    "status": "ok",
    "peildatum": "2026-07-24",
    "metingen": [
@@ -733,25 +689,25 @@
      "hi": 3.0
     }
    ],
+   "bron_url": "https://oostervant.sportfondsen.nl/ik-ben-nieuw/wachtlijst/",
    "min_mnd": 0.0,
    "max_mnd": 12.0,
-   "stale": false
+   "stale": false,
+   "indicator": "duur"
   },
   {
    "id": "rotterdam-sportbedrijf",
    "naam": "Sportbedrijf Rotterdam (zwemles)",
    "plaats": "Rotterdam",
    "prov": "Zuid-Holland",
-   "parser": "tekst",
-   "urls": [
-    "https://www.sportbedrijfrotterdam.nl/zwemles-test-wachttijden"
-   ],
-   "status": "fout: ValueError: geen wachttijd-waarden gevonden op kandidaat-pagina's",
+   "groep": "publicist",
+   "status": "geen duur en geen indicator gevonden",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true
+   "stale": true,
+   "indicator": null
   },
   {
    "id": "sf-oostelijk",
@@ -1309,13 +1265,13 @@
    "plaats": "Amsterdam",
    "prov": "Noord-Holland",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
-   "peildatum": null,
+   "status": "ok (indicator)",
+   "peildatum": "2026-07-24",
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true,
-   "indicator": null
+   "stale": false,
+   "indicator": "wachtlijst"
   },
   {
    "id": "sf-mercator",
@@ -1323,13 +1279,13 @@
    "plaats": "Amsterdam",
    "prov": "Noord-Holland",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
-   "peildatum": null,
+   "status": "ok (indicator)",
+   "peildatum": "2026-07-24",
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true,
-   "indicator": null
+   "stale": false,
+   "indicator": "wachtlijst"
   },
   {
    "id": "sf-wedde",
@@ -1337,13 +1293,13 @@
    "plaats": "Voorschoten",
    "prov": "Zuid-Holland",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
-   "peildatum": null,
+   "status": "ok (indicator)",
+   "peildatum": "2026-07-24",
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true,
-   "indicator": null
+   "stale": false,
+   "indicator": "wachtlijst"
   },
   {
    "id": "sf-sterrenbad",
@@ -1351,7 +1307,7 @@
    "plaats": "Wassenaar",
    "prov": "Zuid-Holland",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
+   "status": "subdomein/pagina niet bruikbaar",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -1365,7 +1321,7 @@
    "plaats": "IJsselstein",
    "prov": "Utrecht",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
+   "status": "subdomein/pagina niet bruikbaar",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -1379,13 +1335,13 @@
    "plaats": "Beverwijk",
    "prov": "Noord-Holland",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
-   "peildatum": null,
+   "status": "ok (indicator)",
+   "peildatum": "2026-07-24",
    "metingen": [],
    "min_mnd": null,
    "max_mnd": null,
-   "stale": true,
-   "indicator": null
+   "stale": false,
+   "indicator": "direct"
   },
   {
    "id": "sf-monnickendam",
@@ -1393,7 +1349,7 @@
    "plaats": "Monnickendam",
    "prov": "Noord-Holland",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
+   "status": "subdomein/pagina niet bruikbaar",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -1407,7 +1363,7 @@
    "plaats": "Gennep",
    "prov": "Limburg",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
+   "status": "subdomein/pagina niet bruikbaar",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -1421,7 +1377,7 @@
    "plaats": "Hoofddorp",
    "prov": "Noord-Holland",
    "groep": "sportfondsen",
-   "status": "geen data: ?",
+   "status": "subdomein/pagina niet bruikbaar",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
@@ -1435,7 +1391,7 @@
    "plaats": "Maarssen",
    "prov": "Utrecht",
    "groep": "sportfondsen",
-   "status": "geen data: HTTPSConnectionPool(host='stichtsevecht.sportfondsen.nl', po | browser-fail",
+   "status": "subdomein/pagina niet bruikbaar",
    "peildatum": null,
    "metingen": [],
    "min_mnd": null,
