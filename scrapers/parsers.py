@@ -111,3 +111,16 @@ def parse_sportfondsen_wachtlijst(html):
     if not out:
         out = parse_vrije_tekst(html)
     return out
+
+DIRECT_RE = re.compile(r"geen wachtlijst|direct (?:be)?starten|direct instromen|direct starten|kun(?:t|nen)? .{0,20}direct", re.I)
+WACHT_RE  = re.compile(r"wachtlijst|wachttijd", re.I)
+
+def detecteer_indicator(html):
+    """Niveau-2-indicator als er geen duur te parsen valt:
+    'direct' (geen wachtlijst) | 'wachtlijst' (bevestigd) | None."""
+    tekst = BeautifulSoup(html, "html.parser").get_text(" ", strip=True)
+    if DIRECT_RE.search(tekst):
+        return "direct"
+    if WACHT_RE.search(tekst):
+        return "wachtlijst"
+    return None

@@ -490,13 +490,42 @@ function herbereken(){
       (s.gem != null ? "<br>gem. gepubliceerd: <b>" + String(s.gem).replace(".", ",") + " mnd</b> \u00b7 langste: " + s.max + " mnd" : "<br>nog geen gepubliceerde duur"));
   });
 }
+function normNaam(s){
+  return (s || "").toLowerCase()
+    .replace(/zwembad|optisport|sportfondsen(bad)?|sportplaza|recreatiecentrum|zwemcentrum|sportcomplex|sportcentrum|bronbad|het |de |'t /g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+function hoortBij(x, b){
+  if (x.bronid === b.id) return true;
+  if (!b.naam) return false;
+  const na = normNaam(b.naam), xb = normNaam(x.naam);
+  if (!na || !xb || !(na.includes(xb) || xb.includes(na))) return false;
+  const pl = (b.plaats || "").toLowerCase().split(/[ /(]/)[0];
+  return pl && (x.plaats + " " + x.gemeente).toLowerCase().includes(pl);
+}
 function pasLiveToe(js){
   let vers = 0, totaalOk = 0;
   (js.bronnen || []).forEach(b => {
-    if (!b.metingen || !b.metingen.length) return;
+    if (b.stale) return;
+    const heeftMetingen = b.metingen && b.metingen.length;
+    const heeftIndicator = b.indicator === "wachtlijst" || b.indicator === "direct";
+    if (!heeftMetingen && !heeftIndicator) return;
     totaalOk++;
     D.forEach(x => {
-      if (x.bronid !== b.id) return;
+      if (!hoortBij(x, b)) return;
+      if (!heeftMetingen){
+        // niveau-2: indicator zonder duur; degradeer nooit een gepubliceerde duur
+        if (b.indicator === "direct"){
+          x.cat = "geen"; x.lo = x.hi = null;
+          x.status = "LIVE: site meldt direct starten / geen wachtlijst \u00b7 peildatum " + b.peildatum;
+        } else if (["onbekend","keten"].includes(x.cat)){
+          x.cat = "wachtlijst";
+          x.status = "LIVE: wachtlijst bevestigd op de eigen site (duur niet vermeld) \u00b7 peildatum " + b.peildatum;
+        } else { return; }
+        x.kort = x.status.split("\u00b7")[0];
+        x.live = b; vers++;
+        return;
+      }
       x.lo = b.min_mnd; x.hi = b.max_mnd;
       x.cat = catVanMnd(b.min_mnd);
       x.live = b;
