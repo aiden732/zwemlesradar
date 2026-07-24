@@ -27,6 +27,8 @@ def parse_range(tekst):
     if m: return _f(m.group(1)), _f(m.group(2))
     m = re.search(rf"(\d+[.,]?\d*)\s*(?:tot|[-\u2013])\s*(\d+[.,]?\d*)\s*{JR}", t)
     if m: return _f(m.group(1)) * 12, _f(m.group(2)) * 12
+    m = re.search(rf"(\d+[.,]?\d*)\s*tot\s*(\d+[.,]?\d*)\s*{MND}", t)
+    if m: return _f(m.group(1)), _f(m.group(2))
     m = re.search(rf"(\d+[.,]?\d*)\s*{JR}", t)
     if m:
         v = _f(m.group(1)) * 12
@@ -43,7 +45,9 @@ def parse_dataduiker_lesdagen(html):
     soup = BeautifulSoup(html, "html.parser")
     out = []
     for table in soup.find_all("table"):
-        headers = [th.get_text(strip=True).upper() for th in table.find_all("th")]
+        eerste_rij = table.find("tr")
+        headers = [c.get_text(strip=True).upper()
+                   for c in (eerste_rij.find_all(["th", "td"]) if eerste_rij else [])]
         if not any("WACHTTIJD" in h for h in headers):
             continue
         dag = ""
@@ -75,13 +79,34 @@ def parse_vrije_tekst(html, contextwoorden=(r"wachttijd", r"wachtlijst")):
             continue
         if "review" in z or "doorstroom" in z:
             continue
-        rng = parse_range(z)
-        if rng:
-            out.append({"label": "site", "raw": zin.strip()[:160],
-                        "lo": rng[0], "hi": rng[1]})
+        for stuk in re.split(r",|;| en bij | bij ", zin):
+            rng = parse_range(stuk)
+            if rng:
+                out.append({"label": "site", "raw": stuk.strip()[:160],
+                            "lo": rng[0], "hi": rng[1]})
     uniek, gezien = [], set()
     for m in out:
         k = (m["lo"], m["hi"])
         if k not in gezien:
             gezien.add(k); uniek.append(m)
     return uniek
+
+
+def parse_sportfondsen_wachtlijst(html):
+    """Sportfondsen-module /ik-ben-nieuw/wachtlijst/: regels als
+    '08.15 uur - 6 tot 9 maanden' + B/C-zinnen."""
+    soup = BeautifulSoup(html, "html.parser")
+    tekst = soup.get_text(" ", strip=True)
+    out = []
+    for m in re.finditer(r"(\d{1,2}[.:]\d{2})\s*uur\s*[-\u2013]\s*([^.;]{0,40}?maanden)", tekst):
+        rng = parse_range(m.group(2))
+        if rng:
+            out.append({"label": m.group(1) + " uur", "raw": m.group(2).strip(),
+                        "lo": rng[0], "hi": rng[1]})
+    m = re.search(r"B[- ]?\s*en\s*C[- ]?diploma[^.]{0,60}?(\d+)\s*[-\u2013tot ]+\s*(\d+)\s*maanden", tekst)
+    if m:
+        out.append({"label": "B/C-diploma", "raw": m.group(0)[-40:],
+                    "lo": float(m.group(1)), "hi": float(m.group(2))})
+    if not out:
+        out = parse_vrije_tekst(html)
+    return out

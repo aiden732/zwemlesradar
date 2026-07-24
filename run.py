@@ -9,7 +9,7 @@ import json, sys, datetime, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).parent / "scrapers"))
 import requests
 from bronnen import BRONNEN
-from parsers import parse_dataduiker_lesdagen, parse_vrije_tekst
+from parsers import parse_dataduiker_lesdagen, parse_vrije_tekst, parse_sportfondsen_wachtlijst
 
 UA = {"User-Agent": "ZwemlesRadar/1.0 (+wachttijd-overzicht voor ouders; contact via site)"}
 UIT = pathlib.Path(__file__).parent / "data" / "wachttijden.json"
@@ -26,12 +26,49 @@ def main():
     for bron in BRONNEN:
         rec = dict(bron)
         try:
-            r = requests.get(bron["url"], headers=UA, timeout=25)
-            r.raise_for_status()
-            fn = parse_dataduiker_lesdagen if bron["parser"] == "dataduiker" else parse_vrije_tekst
-            metingen = fn(r.text)
+            fn = {"dataduiker": parse_dataduiker_lesdagen,
+                  "sportfondsen": parse_sportfondsen_wachtlijst}.get(bron["parser"], parse_vrije_tekst)
+            metingen, eerste_html, gebruikte_url = [], None, None
+            kandidaten = list(bron["urls"])
+            geprobeerd = set()
+            while kandidaten and not metingen:
+                url = kandidaten.pop(0)
+                if url in geprobeerd: continue
+                geprobeerd.add(url)
+                try:
+                    resp = requests.get(url, headers=UA, timeout=25)
+                    resp.raise_for_status()
+                except Exception:
+                    continue
+                if eerste_html is None: eerste_html = (url, resp.text)
+                metingen = fn(resp.text)
+                if metingen: gebruikte_url = url
+            if not metingen and eerste_html:
+                # crawl 1 niveau: links met zwemles/wachtlijst/faq op zelfde domein
+                import re as _re
+                from urllib.parse import urljoin, urlparse
+                basis_url, basis_html = eerste_html
+                dom = urlparse(basis_url).netloc
+                links = _re.findall(r'href="([^"#]+)"', basis_html)
+                extra = []
+                for l in links:
+                    vol = urljoin(basis_url, l)
+                    if urlparse(vol).netloc == dom and _re.search(r"zwemles|wachtlijst|wachttijd|veelgestelde|faq", vol, _re.I):
+                        if vol not in geprobeerd and vol not in extra:
+                            extra.append(vol)
+                for url in extra[:4]:
+                    try:
+                        resp = requests.get(url, headers=UA, timeout=25)
+                        resp.raise_for_status()
+                    except Exception:
+                        continue
+                    metingen = fn(resp.text)
+                    if metingen:
+                        gebruikte_url = url
+                        break
             if not metingen:
-                raise ValueError("pagina geladen, geen wachttijd-waarden gevonden")
+                raise ValueError("geen wachttijd-waarden gevonden op kandidaat-pagina's")
+            rec["bron_url"] = gebruikte_url
             los = [m["lo"] for m in metingen] + [m["hi"] for m in metingen if m["hi"]]
             rec.update(status="ok", peildatum=vandaag, metingen=metingen,
                        min_mnd=min(los), max_mnd=max(los), stale=False)
