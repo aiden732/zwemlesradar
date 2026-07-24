@@ -1,0 +1,335 @@
+{
+ "gegenereerd": "2026-07-24",
+ "opmerking": "voorbeeldrun: alleen De Vallei (geparset uit fixture van 24-07); overige bronnen vullen zich bij de eerste echte GitHub Actions-run",
+ "bronnen": [
+  {
+   "id": "vallei-veenendaal",
+   "naam": "Zwembad De Vallei",
+   "plaats": "Veenendaal",
+   "prov": "Utrecht",
+   "url": "https://www.sportserviceveenendaal.nl/zwemles-dagen-en-tijden",
+   "parser": "dataduiker",
+   "status": "ok",
+   "peildatum": "2026-07-24",
+   "metingen": [
+    {
+     "label": "Maandag 14:45 - 15:30",
+     "raw": "6 - 8 maanden",
+     "lo": 6.0,
+     "hi": 8.0
+    },
+    {
+     "label": "Maandag en woensdag 15:30 - 16:30",
+     "raw": "13-16 maanden",
+     "lo": 13.0,
+     "hi": 16.0
+    },
+    {
+     "label": "Maandag en woensdag 16:30 - 17:30",
+     "raw": "12-15 maanden",
+     "lo": 12.0,
+     "hi": 15.0
+    },
+    {
+     "label": "Maandag en woensdag 17:30 - 18:30",
+     "raw": "10-12 maanden",
+     "lo": 10.0,
+     "hi": 12.0
+    },
+    {
+     "label": "Maandag en woensdag 18:30 - 19:30",
+     "raw": "7-8 maanden",
+     "lo": 7.0,
+     "hi": 8.0
+    },
+    {
+     "label": "Woensdag 13:30 - 14:30",
+     "raw": "12-15 maanden",
+     "lo": 12.0,
+     "hi": 15.0
+    },
+    {
+     "label": "Dinsdag en donderdag 14:45 - 15:30",
+     "raw": "6-8 maanden",
+     "lo": 6.0,
+     "hi": 8.0
+    },
+    {
+     "label": "Dinsdag en donderdag 15:30 - 16:30",
+     "raw": "12-15 maanden",
+     "lo": 12.0,
+     "hi": 15.0
+    },
+    {
+     "label": "Dinsdag en donderdag 16:30 - 17:30",
+     "raw": "11-13 maanden",
+     "lo": 11.0,
+     "hi": 13.0
+    },
+    {
+     "label": "Dinsdag en donderdag 17:30 - 18:30",
+     "raw": "11-13 maanden",
+     "lo": 11.0,
+     "hi": 13.0
+    },
+    {
+     "label": "Dinsdag en donderdag 18:30 - 19:30",
+     "raw": "7-8 maanden",
+     "lo": 7.0,
+     "hi": 8.0
+    },
+    {
+     "label": "Vrijdag 13:00 - 14:00",
+     "raw": "11-12 maanden",
+     "lo": 11.0,
+     "hi": 12.0
+    },
+    {
+     "label": "Vrijdag 14:00 - 15:00",
+     "raw": "12-13 maanden",
+     "lo": 12.0,
+     "hi": 13.0
+    },
+    {
+     "label": "Vrijdag 15:30 - 16:30",
+     "raw": "12-14 maanden",
+     "lo": 12.0,
+     "hi": 14.0
+    },
+    {
+     "label": "Vrijdag 16:30 - 17:30",
+     "raw": "11-12 maanden",
+     "lo": 11.0,
+     "hi": 12.0
+    },
+    {
+     "label": "Vrijdag 17:30 - 18:30",
+     "raw": "10-11 maanden",
+     "lo": 10.0,
+     "hi": 11.0
+    },
+    {
+     "label": "Vrijdag 18:30 - 19:30",
+     "raw": "8-10 maanden",
+     "lo": 8.0,
+     "hi": 10.0
+    },
+    {
+     "label": "Zaterdag 08:00 - 09:00",
+     "raw": "12-15 maanden",
+     "lo": 12.0,
+     "hi": 15.0
+    },
+    {
+     "label": "Zaterdag 09:00 - 10:00",
+     "raw": "14-17 maanden",
+     "lo": 14.0,
+     "hi": 17.0
+    },
+    {
+     "label": "Zaterdag 10:15 - 11:15",
+     "raw": "13-16 maanden",
+     "lo": 13.0,
+     "hi": 16.0
+    },
+    {
+     "label": "Zaterdag 13:00 - 14:00",
+     "raw": "11-12 maanden",
+     "lo": 11.0,
+     "hi": 12.0
+    },
+    {
+     "label": "Zaterdag 14:00 - 15:00",
+     "raw": "11-12 maanden",
+     "lo": 11.0,
+     "hi": 12.0
+    }
+   ],
+   "min_mnd": 6.0,
+   "max_mnd": 17.0,
+   "stale": false
+  },
+  {
+   "id": "helsdingen-vianen",
+   "naam": "Helsdingen Sport en Cultuur",
+   "plaats": "Vianen",
+   "prov": "Utrecht",
+   "url": "https://www.helsdingen.nl/zwemmen/zwemles/veel-gestelde-vragen/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "koploper-lelystad",
+   "naam": "De Koploper",
+   "plaats": "Lelystad",
+   "prov": "Flevoland",
+   "url": "https://www.sportbedrijf.nl/zwemmen/zwemles",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "tropiqua-veendam",
+   "naam": "Tropiqua",
+   "plaats": "Veendam",
+   "prov": "Groningen",
+   "url": "https://www.tropiqua.nl/zwemles/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "sport050-groningen",
+   "naam": "Sport050 (Kardinge e.a.)",
+   "plaats": "Groningen",
+   "prov": "Groningen",
+   "url": "https://sport050.nl/zwemmen/zwemles/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "dehout-alkmaar",
+   "naam": "Zwembad De Hout",
+   "plaats": "Alkmaar",
+   "prov": "Noord-Holland",
+   "url": "https://www.zwembaddehout.nl/zwemles/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "hoornsevaart-alkmaar",
+   "naam": "Hoornse Vaart",
+   "plaats": "Alkmaar",
+   "prov": "Noord-Holland",
+   "url": "https://www.hoornsevaart.nl/zwemles/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "drijver-hoofddorp",
+   "naam": "Zwemschool de Drijver",
+   "plaats": "Hoofddorp e.o.",
+   "prov": "Noord-Holland",
+   "url": "https://www.zwemschooldedrijver.nl/veelgestelde-vragen/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "unikco-drachten",
+   "naam": "Zwemschool Unikco",
+   "plaats": "Drachten",
+   "prov": "Friesland",
+   "url": "https://www.zwemschoolunikco.nl/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "watervrienden-venlo",
+   "naam": "Watervrienden Venlo",
+   "plaats": "Venlo",
+   "prov": "Limburg",
+   "url": "https://www.watervriendenvenlo.nl/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "bvsport-leeuwarden",
+   "naam": "bv SPORT",
+   "plaats": "Leeuwarden",
+   "prov": "Friesland",
+   "url": "https://www.bvsport.nl/zwemles/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "sportiom-denbosch",
+   "naam": "Sportiom",
+   "plaats": "Den Bosch",
+   "prov": "Noord-Brabant",
+   "url": "https://www.sportiom.nl/zwemles/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "arnhem-perbad",
+   "naam": "Sportbedrijf Arnhem (per bad)",
+   "plaats": "Arnhem",
+   "prov": "Gelderland",
+   "url": "https://www.sportinarnhem.nl/zwemles/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  },
+  {
+   "id": "rotterdam-wachttijden",
+   "naam": "Zwembaden Rotterdam (wachttijd-tab)",
+   "plaats": "Rotterdam",
+   "prov": "Zuid-Holland",
+   "url": "https://www.zwembadenrotterdam.nl/zwemles/",
+   "parser": "tekst",
+   "status": "nog niet gedraaid",
+   "peildatum": null,
+   "metingen": [],
+   "min_mnd": null,
+   "max_mnd": null,
+   "stale": true
+  }
+ ]
+}
